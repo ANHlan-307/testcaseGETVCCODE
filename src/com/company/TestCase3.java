@@ -7,6 +7,7 @@ public class TestCase3 {
         ResponseGetVCAPI res1 = getvcAPI.callAPI(phonenumber);
         ResponseGetVCAPI res2 = getvcAPI.callAPI(phonenumber);
         if ((!"1010".equals(res2.code))) throw new AssertionError();
+        if ((!"action has been done  previously by this user".equals(res2.message))) throw new AssertionError();
         System.out.println("Finished");
     }
 }

@@ -7,10 +7,11 @@ public class TestCase5 {
         char comp = phonenumber.charAt(0);
         if(!("0".equals(comp)) || !(phonenumber.length()==9)){
             System.out.println("Phonenumber is invalid: not satisfied length or not begin with 0");
-        } else {
-            ResponseGetVCAPI res = getvcAPI.callAPI(phonenumber);
-            if ((!"1004".equals(res.code))) throw new AssertionError();
         }
+        ResponseGetVCAPI res = getvcAPI.callAPI(phonenumber);
+        if ((!"1004".equals(res.code))) throw new AssertionError();
+        if ((!"Parameter valus is invalid".equals(res.message))) throw new AssertionError();
+
         System.out.println("Finished!");
     }
 }
